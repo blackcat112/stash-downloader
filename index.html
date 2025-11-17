@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stash - Personal Finance Manager</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            margin-bottom: 30px;
+        }
+
+        .app-icon img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .app-icon img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00ff88 0%, #00b0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+        }
+
+        .version {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        /* Carrusel de Screenshots */
+        .screenshots-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .screenshot-item {
+            min-width: 100%;
+            padding: 20px;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .screenshot-caption {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #a0a0a0;
+            font-weight: 500;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: #00ff88;
+            color: #000000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 0;
+        }
+
+        .carousel-btn.next {
+            right: 0;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #00ff88;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .dot:hover {
+            background: rgba(0, 255, 136, 0.5);
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: #00ff88;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #a0a0a0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Downloads Section */
+        .downloads {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+        }
+
+        .downloads h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .download-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .download-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .download-card p {
+            color: #a0a0a0;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ff88 0%, #00b0ff 100%);
+            color: #000000;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Setup Section */
+        .setup {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .setup h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .setup-steps {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .step {
+            display: flex;
+            align-items: start;
+            margin-bottom: 25px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #00ff88 0%, #00b0ff 100%);
+            color: #000000;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .step-content p {
+            color: #a0a0a0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .step-content a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+
+        .step-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: #666;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 42px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .downloads h2,
+            .setup h2 {
+                font-size: 28px;
+            }
+
+            .screenshots-carousel {
+                padding: 0 50px;
+            }
+
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 22px;
+            }
+
+            .app-icon img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+
+<script>
+    let currentSlide = 0;
+    const totalSlides = 3; // Ajusta este número si tienes más o menos screenshots
+
+    // Inicializar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+        createDots();
+        updateCarousel();
+    });
+
+    function createDots() {
+        const dotsContainer = document.getElementById('carouselDots');
+        dotsContainer.innerHTML = ''; // Limpiar
+        
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            if (i === 0) dot.classList.add('active');
+            dot.setAttribute('onclick', `goToSlide(${i})`);
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function moveCarousel(direction) {
+        currentSlide += direction;
+        
+        if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        }
+        
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const track = document.getElementById('carouselTrack');
+        const offset = -currentSlide * 100;
+        track.style.transform = `translateX(${offset}%)`;
+        
+        // Update dots
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    // Auto-play carousel (opcional, comenta estas líneas si no lo quieres)
+    setInterval(() => {
+        moveCarousel(1);
+    }, 5000);
+</script>
+
+<body>
+    <div class="container">
+         
+        <div class="hero">
+            <div class="app-icon">
+                <!-- Reemplaza esta imagen con tu icono -->
+                <img src="./icon.png" alt="Stash Icon" id="appIcon">
+            </div>
+            <h1>Stash</h1>
+            <p class="subtitle">Your Personal Finance & Investment Manager</p>
+            <span class="version">v2.0.0</span>
+            
+            <!-- Carrusel de screenshots -->
+            <div class="screenshots-carousel">
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="screenshot-item">
+                            <img src="./screenshots/savingsD.png" alt="Savings Dashboard">
+                            <p class="screenshot-caption">Savings Dashboard</p>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="./screenshots/savingsA.png" alt="Investment Portfolio">
+                            <p class="screenshot-caption">Visual Analytics</p>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="./screenshots/Finance.png" alt="Analytics">
+                            <p class="screenshot-caption">Porfolio Real Time</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>Savings Tracking</h3>
+                <p>Organize your income and expenses with custom categories</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <h3>Investment Portfolio</h3>
+                <p>Track your stocks with real-time price updates</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Visual Analytics</h3>
+                <p>Beautiful charts to visualize your financial growth</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>100% Private</h3>
+                <p>All data stays on your device, no cloud sync</p>
+            </div>
+        </div>
+
+        <div class="downloads">
+            <h2> Download Stash</h2>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="download-icon">🍎</div>
+                    <h3>macOS</h3>
+                    <p>For Apple Silicon (M1/M2/M3)</p>
+                    <a href="./downloads/stash_2.0.0_aarch64.dmg" class="download-btn" download>Download .dmg</a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-icon">🖥️</div>
+                    <h3>macOS</h3>
+                    <p>For Intel processors</p>
+                    <a href="./downloads/stash_2.0.0_x64.dmg" class="download-btn" download>Download .dmg</a>
+                </div>
+
+                <!-- <div class="download-card">
+                    <div class="download-icon">🪟</div>
+                    <h3>Windows</h3>
+                    <p>MSI Installer (recommended)</p>
+                    <a href="AQUI_TU_LINK_MSI" class="download-btn" download>Download .msi</a>
+                </div> -->
+
+                <div class="download-card">
+                    <div class="download-icon">⚙️</div>
+                    <h3>Windows</h3>
+                    <p>Setup Installer</p>
+                    <a href="./downloads/stash_2.0.0_x64-setup.exe" class="download-btn" download>Download .exe</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="setup">
+            <h2>🚀 Quick Setup</h2>
+            <div class="setup-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Download the installer</h4>
+                        <p>Choose the version for your operating system above</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Install Stash</h4>
+                        <p>Run the installer and follow the instructions</p>
+                    </div>
+                </div>
+                <!-- <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Get your API key</h4>
+                        <p>For investment tracking, get a free API key from <a href="https://www.alphavantage.co/support/#api-key" target="_blank">Alpha Vantage</a></p>
+                    </div>
+                </div> -->
+                <!-- <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Configure & enjoy!</h4>
+                        <p>Open Stash, click the 🔑 API Key button, paste your key, and start managing your finances</p>
+                    </div>
+                </div> -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Configure & enjoy!</h4>
+                        <p>Open Stash, introduce your actual balance and start managing your finances</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>See Results</h4>
+                        <p>Click End Month and see how your monhtly saves go on your balance !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ by Nicolas Becas | © 2026 Stash</p>
+        </footer>
+    </div>
+</body>
+</html>
