@@ -197,8 +197,21 @@
         }
 
         .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            color: #00ff88;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.1);
+            color: #00b0ff;
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
         .feature h3 {
@@ -249,8 +262,21 @@
         }
 
         .download-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            color: #00ff88;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover .download-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: #00b0ff;
+        }
+
+        .download-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
         .download-card h3 {
@@ -546,44 +572,79 @@
             <div class="carousel-dots" id="carouselDots"></div>
         </div>
 
+       
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">💰</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
                 <h3>Savings Tracking</h3>
                 <p>Organize your income and expenses with custom categories</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">📈</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
                 <h3>Investment Portfolio</h3>
                 <p>Track your stocks with real-time price updates</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">📊</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="20" x2="12" y2="10"/>
+                        <line x1="18" y1="20" x2="18" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="16"/>
+                    </svg>
+                </div>
                 <h3>Visual Analytics</h3>
                 <p>Beautiful charts to visualize your financial growth</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🔒</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
                 <h3>100% Private</h3>
                 <p>All data stays on your device, no cloud sync</p>
             </div>
         </div>
 
+
         <div class="downloads">
             <h2> Download Stash</h2>
             <div class="download-grid">
                 <div class="download-card">
-                    <div class="download-icon">🍎</div>
+                    <div class="download-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 26 26"><path fill="#00ff88" d="M23.934 18.947c-.598 1.324-.884 1.916-1.652 3.086c-1.073 1.634-2.588 3.673-4.461 3.687c-1.666.014-2.096-1.087-4.357-1.069c-2.261.011-2.732 1.089-4.4 1.072c-1.873-.017-3.307-1.854-4.381-3.485c-3.003-4.575-3.32-9.937-1.464-12.79C4.532 7.425 6.61 6.237 8.561 6.237c1.987 0 3.236 1.092 4.879 1.092c1.594 0 2.565-1.095 4.863-1.095c1.738 0 3.576.947 4.889 2.581c-4.296 2.354-3.598 8.49.742 10.132zM16.559 4.408c.836-1.073 1.47-2.587 1.24-4.131c-1.364.093-2.959.964-3.891 2.092c-.844 1.027-1.544 2.553-1.271 4.029c1.488.048 3.028-.839 3.922-1.99z"/></svg>
+                    </div>
                     <h3>macOS</h3>
                     <p>For Apple Silicon (M1/M2/M3)</p>
                     <a href="./downloads/stash_2.0.0_aarch64.dmg" class="download-btn" download>Download .dmg</a>
                 </div>
-
+                
                 <div class="download-card">
-                    <div class="download-icon">🖥️</div>
+                    <div class="download-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 26 26"><path fill="#00ff88" d="M23.934 18.947c-.598 1.324-.884 1.916-1.652 3.086c-1.073 1.634-2.588 3.673-4.461 3.687c-1.666.014-2.096-1.087-4.357-1.069c-2.261.011-2.732 1.089-4.4 1.072c-1.873-.017-3.307-1.854-4.381-3.485c-3.003-4.575-3.32-9.937-1.464-12.79C4.532 7.425 6.61 6.237 8.561 6.237c1.987 0 3.236 1.092 4.879 1.092c1.594 0 2.565-1.095 4.863-1.095c1.738 0 3.576.947 4.889 2.581c-4.296 2.354-3.598 8.49.742 10.132zM16.559 4.408c.836-1.073 1.47-2.587 1.24-4.131c-1.364.093-2.959.964-3.891 2.092c-.844 1.027-1.544 2.553-1.271 4.029c1.488.048 3.028-.839 3.922-1.99z"/></svg>
+                    </div>
                     <h3>macOS</h3>
-                    <p>For Intel processors</p>
+                    <p>For <b>Intel processors</b></p>
                     <a href="./downloads/stash_2.0.0_x64.dmg" class="download-btn" download>Download .dmg</a>
+                </div>
+                
+                <div class="download-card">
+                    <div class="download-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 368 408"><path fill="#00ff88" d="M0 192V80l128-28v138zM363 0v187l-214 3V47zM0 213l128 2v146L0 336V213zm363 6v186l-214-40V215z"/></svg>
+                    </div>
+                    <h3>Windows</h3>
+                    <p>Setup Installer</p>
+                    <a href="./downloads/stash_2.0.0_x64-setup.exe" class="download-btn" download>Download .exe</a>
                 </div>
 
                 <!-- <div class="download-card">
@@ -593,17 +654,17 @@
                     <a href="AQUI_TU_LINK_MSI" class="download-btn" download>Download .msi</a>
                 </div> -->
 
-                <div class="download-card">
-                    <div class="download-icon">🪟</div>
-                    <h3>Windows</h3>
-                    <p>Setup Installer</p>
-                    <a href="./downloads/stash_2.0.0_x64-setup.exe" class="download-btn" download>Download .exe</a>
-                </div>
+                
             </div>
         </div>
 
         <div class="setup">
-            <h2>🚀 Quick Setup</h2>
+            <h2>
+                <svg style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Quick Setup
+            </h2>
             <div class="setup-steps">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -652,7 +713,14 @@
 
 
         <div class="setup">
-            <h2>⚠️ macOS Users: First-Time Setup</h2>
+            <h2>
+                <svg style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                macOS Users: First-Time Setup
+            </h2>
             <div class="setup-steps">
                 <div class="step">
                     <div class="step-number">1</div>
