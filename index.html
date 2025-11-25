@@ -421,6 +421,92 @@
             transform: scale(1.1);
         }
 
+
+
+
+        .edge-warning {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, rgba(255, 145, 0, 0.95) 0%, rgba(255, 23, 68, 0.95) 100%);
+            padding: 20px;
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .edge-warning-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .edge-warning-icon {
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .edge-warning-text {
+            flex: 1;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .edge-warning-text strong {
+            font-weight: 700;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .edge-warning-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .edge-warning-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .edge-warning-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .edge-warning-text strong {
+                font-size: 16px;
+            }
+            
+            .edge-warning-text {
+                font-size: 14px;
+            }
+        }
+
         /* Responsive para social links */
         @media (max-width: 768px) {
             .social-links {
@@ -465,6 +551,8 @@
                 width: 90px;
                 height: 90px;
             }
+
+            
         }
     </style>
 </head>
@@ -472,6 +560,19 @@
 <script>
     let currentSlide = 0;
     const totalSlides = 4; 
+
+    function detectEdge() {
+    const isEdge = /Edg/.test(navigator.userAgent);
+        if (isEdge && !sessionStorage.getItem('edgeWarningClosed')) {
+            document.getElementById('edgeWarning').style.display = 'block';
+        }
+    }
+
+    function closeEdgeWarning() {
+        document.getElementById('edgeWarning').style.display = 'none';
+        sessionStorage.setItem('edgeWarningClosed', 'true');
+    }
+
 
     // Inicializar cuando el DOM esté listo
     document.addEventListener('DOMContentLoaded', function() {
@@ -529,7 +630,11 @@
     setInterval(() => {
         moveCarousel(1);
     }, 5000);
+
+    
 </script>
+
+
 
 <body>
     <div class="container">
@@ -570,6 +675,8 @@
             </div>
             <div class="carousel-dots" id="carouselDots"></div>
         </div>
+
+  
 
        
         <div class="features">
