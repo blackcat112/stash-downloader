@@ -79,7 +79,7 @@
         .screenshots-carousel {
             position: relative;
             max-width: 900px;
-            margin: 0 auto;
+            margin: 0 auto 40px;
             padding: 0 60px;
         }
 
@@ -225,86 +225,47 @@
             line-height: 1.6;
         }
 
-        /* Downloads Section */
-        .downloads {
+        /* Access Section (reemplaza Downloads) */
+        .access-section {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 60px 40px;
             margin-bottom: 60px;
+            text-align: center;
         }
 
-        .downloads h2 {
-            text-align: center;
+        .access-section h2 {
             font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .download-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .download-card:hover {
-            border-color: #00ff88;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
-        }
-
-        .download-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            color: #00ff88;
-            transition: all 0.3s ease;
-        }
-
-        .download-card:hover .download-icon {
-            transform: scale(1.1) rotate(5deg);
-            color: #00b0ff;
-        }
-
-        .download-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .download-card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .download-card p {
-            color: #a0a0a0;
-            font-size: 14px;
             margin-bottom: 20px;
         }
 
-        .download-btn {
+        .access-section p {
+            color: #a0a0a0;
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .access-btn {
             display: inline-block;
             background: linear-gradient(135deg, #00ff88 0%, #00b0ff 100%);
             color: #000000;
-            padding: 14px 32px;
-            border-radius: 10px;
+            padding: 18px 48px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 18px;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 255, 136, 0.3);
         }
 
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.4);
+        .access-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 255, 136, 0.5);
         }
 
         /* Setup Section */
@@ -316,6 +277,10 @@
         .setup h2 {
             font-size: 32px;
             margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .setup-steps {
@@ -363,15 +328,6 @@
             line-height: 1.6;
         }
 
-        .step-content a {
-            color: #00ff88;
-            text-decoration: none;
-        }
-
-        .step-content a:hover {
-            text-decoration: underline;
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -386,6 +342,7 @@
             justify-content: center;
             gap: 30px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .social-link {
@@ -415,130 +372,41 @@
             width: 24px;
             height: 24px;
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .social-link:hover svg {
             transform: scale(1.1);
         }
 
-
-
-
-        .edge-warning {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, rgba(255, 145, 0, 0.95) 0%, rgba(255, 23, 68, 0.95) 100%);
-            padding: 20px;
-            z-index: 9999;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.5s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        .edge-warning-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .edge-warning-icon {
-            font-size: 36px;
-            flex-shrink: 0;
-        }
-
-        .edge-warning-text {
-            flex: 1;
-            color: #ffffff;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .edge-warning-text strong {
-            font-weight: 700;
-            font-size: 18px;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .edge-warning-close {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #ffffff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .edge-warning-close:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .edge-warning-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .edge-warning-text strong {
-                font-size: 16px;
-            }
-            
-            .edge-warning-text {
-                font-size: 14px;
-            }
-        }
-
-        /* Responsive para social links */
-        @media (max-width: 768px) {
-            .social-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .social-link {
-                width: 100%;
-                max-width: 250px;
-                margin: 0 auto;
-                justify-content: center;
-            }
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 40px 15px;
+            }
+
             h1 {
                 font-size: 42px;
+                letter-spacing: -1px;
             }
 
             .subtitle {
                 font-size: 16px;
             }
 
-            .downloads h2,
-            .setup h2 {
-                font-size: 28px;
+            .version {
+                font-size: 12px;
+                padding: 6px 16px;
+            }
+
+            .app-icon img {
+                width: 90px;
+                height: 90px;
             }
 
             .screenshots-carousel {
-                padding: 0 50px;
+                padding: 0 45px;
+                margin-bottom: 30px;
             }
 
             .carousel-btn {
@@ -547,101 +415,129 @@
                 font-size: 22px;
             }
 
-            .app-icon img {
-                width: 90px;
-                height: 90px;
+            .screenshot-caption {
+                font-size: 14px;
             }
 
-            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 60px;
+            }
+
+            .feature {
+                padding: 25px;
+            }
+
+            .feature-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .feature h3 {
+                font-size: 18px;
+            }
+
+            .access-section {
+                padding: 40px 25px;
+            }
+
+            .access-section h2 {
+                font-size: 28px;
+            }
+
+            .access-section p {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .access-btn {
+                padding: 16px 36px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .setup h2 {
+                font-size: 26px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .setup h2 svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .setup-steps {
+                padding: 30px 20px;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .step-content h4 {
+                font-size: 16px;
+            }
+
+            .step-content p {
+                font-size: 13px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .social-link {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .carousel-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 20px;
+            }
+
+            .screenshots-carousel {
+                padding: 0 35px;
+            }
+
+            .access-section h2 {
+                font-size: 24px;
+            }
+
+            .setup h2 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 
-<script>
-    let currentSlide = 0;
-    const totalSlides = 4; 
-
-    function detectEdge() {
-    const isEdge = /Edg/.test(navigator.userAgent);
-        if (isEdge && !sessionStorage.getItem('edgeWarningClosed')) {
-            document.getElementById('edgeWarning').style.display = 'block';
-        }
-    }
-
-    function closeEdgeWarning() {
-        document.getElementById('edgeWarning').style.display = 'none';
-        sessionStorage.setItem('edgeWarningClosed', 'true');
-    }
-
-
-    // Inicializar cuando el DOM esté listo
-    document.addEventListener('DOMContentLoaded', function() {
-        createDots();
-        updateCarousel();
-    });
-
-    function createDots() {
-        const dotsContainer = document.getElementById('carouselDots');
-        dotsContainer.innerHTML = ''; // Limpiar
-        
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'dot';
-            if (i === 0) dot.classList.add('active');
-            dot.setAttribute('onclick', `goToSlide(${i})`);
-            dotsContainer.appendChild(dot);
-        }
-    }
-
-    function moveCarousel(direction) {
-        currentSlide += direction;
-        
-        if (currentSlide < 0) {
-            currentSlide = totalSlides - 1;
-        }
-        if (currentSlide >= totalSlides) {
-            currentSlide = 0;
-        }
-        
-        updateCarousel();
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateCarousel();
-    }
-
-    function updateCarousel() {
-        const track = document.getElementById('carouselTrack');
-        const offset = -currentSlide * 100;
-        track.style.transform = `translateX(${offset}%)`;
-        
-        // Update dots
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-            if (index === currentSlide) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
-
-    setInterval(() => {
-        moveCarousel(1);
-    }, 5000);
-
-    
-</script>
-
-
-
 <body>
     <div class="container">
-         
         <div class="hero">
             <div class="app-icon">
-                
                 <img src="./icon.png" alt="Stash Icon" id="appIcon">
             </div>
             <h1>Stash</h1>
@@ -663,11 +559,11 @@
                         </div>
                         <div class="screenshot-item">
                             <img src="./screenshots/Finance.png" alt="Analytics">
-                            <p class="screenshot-caption">Porfolio Real Time</p>
+                            <p class="screenshot-caption">Portfolio Real Time</p>
                         </div>
                         <div class="screenshot-item">
                             <img src="./screenshots/FinanceG.png" alt="Analytics">
-                            <p class="screenshot-caption">Porfolio Analytics</p>
+                            <p class="screenshot-caption">Portfolio Analytics</p>
                         </div>
                     </div>
                 </div>
@@ -676,9 +572,6 @@
             <div class="carousel-dots" id="carouselDots"></div>
         </div>
 
-  
-
-       
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">
@@ -717,73 +610,21 @@
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
                 </div>
-                <h3>100% Private</h3>
-                <p>All data stays on your device, no cloud sync</p>
+                <h3>Secure & Private</h3>
+                <p>Encrypted data storage with activation key access</p>
             </div>
         </div>
 
-
-        <div class="downloads">
-            <h2> Download Stash</h2>
-
-               <!-- Edge Browser Warning -->
-            <div style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); border-left: 4px solid #ff4757; padding: 16px 20px; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(255, 75, 87, 0.15);">
-                <div style="display: flex; align-items: start; gap: 12px;">
-                    <svg style="width: 24px; height: 24px; flex-shrink: 0; margin-top: 2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                        <line x1="12" y1="9" x2="12" y2="13"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
-                    </svg>
-                    <div>
-                        <strong style="display: block; margin-bottom: 6px; font-size: 15px;">Microsoft Edge Download Issue</strong>
-                        <p style="margin: 0; font-size: 14px; line-height: 1.5; opacity: 0.95;">
-                            If you're using Microsoft Edge and downloads are not working, please try <strong>Google Chrome</strong> or <strong>Safari</strong> instead. Edge may block certain downloads due to security settings.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="download-grid">
-                <div class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 26 26"><path fill="#00ff88" d="M23.934 18.947c-.598 1.324-.884 1.916-1.652 3.086c-1.073 1.634-2.588 3.673-4.461 3.687c-1.666.014-2.096-1.087-4.357-1.069c-2.261.011-2.732 1.089-4.4 1.072c-1.873-.017-3.307-1.854-4.381-3.485c-3.003-4.575-3.32-9.937-1.464-12.79C4.532 7.425 6.61 6.237 8.561 6.237c1.987 0 3.236 1.092 4.879 1.092c1.594 0 2.565-1.095 4.863-1.095c1.738 0 3.576.947 4.889 2.581c-4.296 2.354-3.598 8.49.742 10.132zM16.559 4.408c.836-1.073 1.47-2.587 1.24-4.131c-1.364.093-2.959.964-3.891 2.092c-.844 1.027-1.544 2.553-1.271 4.029c1.488.048 3.028-.839 3.922-1.99z"/></svg>
-                    </div>
-                    <h3>macOS</h3>
-                    <p>For Apple Silicon (M1/M2/M3)</p>
-                    <a href="./downloads/stash_2.4.0_aarch64.dmg" class="download-btn" download>Download .dmg</a>
-                </div>
-                
-                <div class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 26 26"><path fill="#00ff88" d="M23.934 18.947c-.598 1.324-.884 1.916-1.652 3.086c-1.073 1.634-2.588 3.673-4.461 3.687c-1.666.014-2.096-1.087-4.357-1.069c-2.261.011-2.732 1.089-4.4 1.072c-1.873-.017-3.307-1.854-4.381-3.485c-3.003-4.575-3.32-9.937-1.464-12.79C4.532 7.425 6.61 6.237 8.561 6.237c1.987 0 3.236 1.092 4.879 1.092c1.594 0 2.565-1.095 4.863-1.095c1.738 0 3.576.947 4.889 2.581c-4.296 2.354-3.598 8.49.742 10.132zM16.559 4.408c.836-1.073 1.47-2.587 1.24-4.131c-1.364.093-2.959.964-3.891 2.092c-.844 1.027-1.544 2.553-1.271 4.029c1.488.048 3.028-.839 3.922-1.99z"/></svg>
-                    </div>
-                    <h3>macOS</h3>
-                    <p>For <b>Intel processors</b></p>
-                    <a href="./downloads/stash_2.4.0_x64.dmg" class="download-btn" download>Download .dmg</a>
-                </div>
-                
-                <div class="download-card">
-                    <div class="download-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 368 408"><path fill="#00ff88" d="M0 192V80l128-28v138zM363 0v187l-214 3V47zM0 213l128 2v146L0 336V213zm363 6v186l-214-40V215z"/></svg>
-                    </div>
-                    <h3>Windows</h3>
-                    <p>Setup Installer</p>
-                    <a href="./downloads/stash_2.4.0_x64-setup.exe" class="download-btn" download>Download .exe</a>
-                </div>
-
-                <!-- <div class="download-card">
-                    <div class="download-icon">🪟</div>
-                    <h3>Windows</h3>
-                    <p>MSI Installer (recommended)</p>
-                    <a href="AQUI_TU_LINK_MSI" class="download-btn" download>Download .msi</a>
-                </div> -->
-
-                
-            </div>
+        <!-- Access Section (reemplaza Downloads) -->
+        <div class="access-section">
+            <h2>Access Stash</h2>
+            <p>Get started with your personal finance management. Use your activation key to access the app securely.</p>
+            <a href="" class="access-btn">Go to Login</a>
         </div>
 
         <div class="setup">
             <h2>
-                <svg style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg style="width: 32px; height: 32px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
                 Quick Setup
@@ -792,90 +633,33 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h4>Download the installer</h4>
-                        <p>Choose the version for your operating system above</p>
+                        <h4>Access the app</h4>
+                        <p>Click the button above to go to the login page</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h4>Install Stash</h4>
-                        <p>Run the installer and follow the instructions</p>
+                        <h4>Enter your credentials</h4>
+                        <p>Use your email and activation key to access Stash</p>
                     </div>
                 </div>
-                <!-- <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Get your API key</h4>
-                        <p>For investment tracking, get a free API key from <a href="https://www.alphavantage.co/support/#api-key" target="_blank">Alpha Vantage</a></p>
-                    </div>
-                </div> -->
-                <!-- <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Configure & enjoy!</h4>
-                        <p>Open Stash, click the 🔑 API Key button, paste your key, and start managing your finances</p>
-                    </div>
-                </div> -->
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <h4>Configure & enjoy!</h4>
-                        <p>Open Stash, introduce your actual balance and start managing your finances</p>
+                        <p>Set your initial balance and start managing your finances</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h4>See Results</h4>
-                        <p>Click End Month and see how your monhtly saves go on your balance !</p>
+                        <p>Click End Month and see how your monthly saves go on your balance!</p>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="setup">
-            <h2>
-                <svg style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                    <line x1="12" y1="9" x2="12" y2="13"/>
-                    <line x1="12" y1="17" x2="12.01" y2="17"/>
-                </svg>
-                macOS Users: First-Time Setup
-            </h2>
-            <div class="setup-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Install Stash</h4>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Open Stash</h4>
-                        <p>macOS will show "App is damaged and can't be opened" because the app is not signed</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>How to fix:</h4>
-                        <p>RUN this in Terminal:</p>
-                        <pre style="background: rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 8px; overflow-x: auto;">xattr -cr /Applications/Stash.app</pre>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h4>This is a one-time step. After this, the app will open normally! 🎉</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <footer>
             <p>Made with ❤️ by Nicolas Becas | © 2025 Stash</p>
@@ -894,7 +678,69 @@
                 </a>
             </div>
         </footer>
-
     </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            createDots();
+            updateCarousel();
+        });
+
+        function createDots() {
+            const dotsContainer = document.getElementById('carouselDots');
+            dotsContainer.innerHTML = '';
+            
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('onclick', `goToSlide(${i})`);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const offset = -currentSlide * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-play carousel
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+    </script>
 </body>
 </html>
